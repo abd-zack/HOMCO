@@ -1,0 +1,226 @@
+
+        :root {
+            --primary: #3b82f6;
+            --primary-dark: #2563eb;
+            --secondary: #6366f1;
+            --danger: #ef4444;
+            --success: #00c986;
+            --warning: #f59e0b;
+        }
+        
+        body {
+            background-color: #e9ebef;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .neumorphic {
+            border-radius: 16px;
+            background: #f0f0f0;
+            box-shadow:  8px 8px 16px #d9d9d9,
+                        -8px -8px 16px #ffffff;
+            transition: all 0.3s ease;
+        }
+        
+        .neumorphic-inset {
+            border-radius: 16px;
+            background: #f0f0f0;
+            box-shadow: inset 8px 8px 16px #d9d9d9,
+                       inset -8px -8px 16px #ffffff;
+        }
+        
+        .neumorphic-btn {
+            border-radius: 12px;
+            background: #f0f0f0;
+            box-shadow:  4px 4px 8px #d9d9d9,
+                        -4px -4px 8px #ffffff;
+            transition: all 0.2s ease;
+        }
+        
+        .neumorphic-btn:active {
+            box-shadow: inset 4px 4px 8px #d9d9d9,
+                       inset -4px -4px 8px #ffffff;
+        }
+        
+        .neumorphic-btn-primary {
+            background: var(--primary);
+            box-shadow:  4px 4px 8px #d9d9d9,
+                        -4px -4px 8px #ffffff,
+                        inset 0 0 0 100px rgba(255,255,255,0.1);
+            color: white;
+        }
+        
+        .neumorphic-btn-primary:active {
+            box-shadow: inset 4px 4px 8px var(--primary-dark),
+                       inset -4px -4px 8px var(--primary);
+        }
+        
+        .neumorphic-btn-danger {
+            background: var(--danger);
+            box-shadow:  4px 4px 8px #d9d9d9,
+                        -4px -4px 8px #ffffff,
+                        inset 0 0 0 100px rgba(255,255,255,0.1);
+            color: white;
+        }
+        
+        .neumorphic-btn-danger:active {
+            box-shadow: inset 4px 4px 8px #dc2626,
+                       inset -4px -4px 8px var(--danger);
+        }
+        
+        .neumorphic-btn-success {
+            background: var(--success);
+            box-shadow:  4px 4px 8px #d9d9d9,
+                        -4px -4px 8px #ffffff,
+                        inset 0 0 0 100px rgba(255,255,255,0.1);
+            color: white;
+        }
+        
+        .neumorphic-btn-success:active {
+            box-shadow: inset 4px 4px 8px #0d9c6e,
+                       inset -4px -4px 8px var(--success);
+        }
+        
+        .neumorphic-toggle {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+        
+        .neumorphic-toggle input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .neumorphic-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 34px;
+            background: #f0f0f0;
+            box-shadow: inset 4px 4px 8px #d9d9d9,
+                       inset -4px -4px 8px #ffffff;
+            transition: .4s;
+        }
+        
+        .neumorphic-slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            border-radius: 50%;
+            background: linear-gradient(145deg, #e0e0e0, #ffffff);
+            box-shadow:  2px 2px 4px #d9d9d9,
+                        -2px -2px 4px #ffffff;
+            transition: .4s;
+        }
+        
+        input:checked + .neumorphic-slider {
+            background: #9fa8b7;
+        }
+        
+        input:checked + .neumorphic-slider:before {
+            transform: translateX(26px);
+        }
+        
+        .connection-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 6px;
+        }
+        
+        .connection-dot.connected {
+            background-color: var(--success);
+        }
+        
+        .connection-dot.disconnected {
+            background-color: var(--danger);
+        }
+        
+        .connection-dot.connecting {
+            background-color: var(--warning);
+        }
+        
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        
+        .settings-panel {
+            position: fixed;
+            top: 0;
+            right: 0;
+            height: 100vh;
+            width: 380px;
+            max-width: 100%;
+            transform: translateX(100%);
+            transition: transform 0.3s ease-out;
+            z-index: 100;
+        }
+        
+        .settings-panel.open {
+            transform: translateX(0);
+        }
+        
+        @media (max-width: 640px) {
+            .settings-panel {
+                width: 100%;
+            }
+        }
+        
+        .relay-card {
+            transition: all 0.3s ease;
+        }
+        
+        .relay-card:hover {
+            transform: translateY(-2px);
+        }
+        
+        .relay-status {
+            width: 10px;
+            height: 10px;
+            border-radius: 60%;
+            display: inline-block;
+        }
+        
+        .relay-status.on {
+            background-color: var(--success);
+            box-shadow: 0 0 5px var(--success);
+        }
+        
+        .relay-status.off {
+            background-color: var(--danger);
+            box-shadow: 0 0 5px var(--danger);
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+            }
+        }
